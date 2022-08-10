@@ -15,9 +15,9 @@ import org.json.simple.parser.ParseException;
  * @author mayijoo
  * @since 2022-07-15
  * 
- * ÇÐ»ý°ü¸® ÇÁ·Î±×·¥
- * - ±â´É 
- *  1. Æò±Õ °è»ê   
+ * ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½
+ * - ï¿½ï¿½ï¿½ 
+ *  1. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½   
  * 
  */
 public class StudentManagement {
@@ -31,11 +31,11 @@ public class StudentManagement {
             reader = new FileReader("C:/Work/StudentData.txt", StandardCharsets.UTF_8);
         } catch (FileNotFoundException e) {
             e.getMessage();
-            System.out.println("file reader ¿À·ù");
+            System.out.println("file reader ï¿½ï¿½ï¿½ï¿½");
             return;
         } catch (Exception e) {
             e.getMessage();
-            System.out.println("¾Ë¼ö¾ø´Â Exception ¿À·ù");
+            System.out.println("ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ Exception ï¿½ï¿½ï¿½ï¿½");
             return;
         }
 
@@ -43,7 +43,7 @@ public class StudentManagement {
 
         JSONParser parser = new JSONParser();
 
-        System.out.println("3. parse¿Í µ¿½Ã¿¡ JSONArray·Î º¯È¯");
+        System.out.println("3. parseï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ JSONArrayï¿½ï¿½ ï¿½ï¿½È¯");
         JSONArray jsonArr2 = null;
         try {
             jsonArr2 = (JSONArray) parser.parse(reader);
@@ -58,35 +58,35 @@ public class StudentManagement {
 
         } catch (IOException e) {
             e.getMessage();
-            System.out.println("parse IO ¿À·ù1");
+            System.out.println("parse IO ï¿½ï¿½ï¿½ï¿½1");
         } catch (ParseException e) {
             e.getMessage();
             System.out.println("parse Exception1");
         } catch (Exception e) {
             e.getMessage();
-            System.out.println("during parsing ¾Ë ¼ö ¾ø´Â Exception ¿À·ù ¹ß»ý1");
+            System.out.println("during parsing ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Exception ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½1");
         }
 
-        System.out.println("2. JSONObject·Î º¯È¯");
+        System.out.println("2. JSONObjectï¿½ï¿½ ï¿½ï¿½È¯");
         JSONObject jsonObj2 = null;
         JSONArray jsonArr = null;
         for (int i = 0; i < jsonArr2.size(); i++) {
             jsonObj2 = (JSONObject) jsonArr2.get(i);
             if (i == 0) {
-                System.out.println(jsonObj2.get("ÀÎÀû»çÇ×"));
+                System.out.println(jsonObj2.get("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
 
-                System.out.println("1. ÀÎÀû»çÇ× JSONArray·Î º¯È¯");
-                jsonArr = (JSONArray) jsonObj2.get("ÀÎÀû»çÇ×");
+                System.out.println("1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ JSONArrayï¿½ï¿½ ï¿½ï¿½È¯");
+                jsonArr = (JSONArray) jsonObj2.get("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 for (int j = 0; j < jsonArr.size(); j++) {
 
                     System.out.println(jsonArr.get(j));
                 }
 
             } else if (i == 1) {
-                System.out.println(jsonObj2.get("¼ºÀû±â·ÏºÎ"));
+                System.out.println(jsonObj2.get("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½"));
 
-                System.out.println("1. ¼ºÀû±â·ÏºÎ JSONArray·Î º¯È¯");
-                jsonArr = (JSONArray) jsonObj2.get("¼ºÀû±â·ÏºÎ");
+                System.out.println("1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½ JSONArrayï¿½ï¿½ ï¿½ï¿½È¯");
+                jsonArr = (JSONArray) jsonObj2.get("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïºï¿½");
                 for (int k = 0; k < jsonArr.size(); k++) {
 
                     System.out.println(jsonArr.get(k));
@@ -94,7 +94,7 @@ public class StudentManagement {
             }
         }
        
-        System.out.println("0. JSONObject·Î º¯È¯");
+        System.out.println("0. JSONObjectï¿½ï¿½ ï¿½ï¿½È¯");
         JSONObject lastObj = null;
         for(int i=0; i<jsonArr.size(); i++) {
             lastObj = (JSONObject)jsonArr.get(i);
@@ -106,6 +106,22 @@ public class StudentManagement {
                 System.out.println(lastObj.get("DataBase"));
             }else if(i == 3 ) {
                 System.out.println(lastObj.get("AI"));
+            }
+        }
+        
+        System.out.println("join Minchul....testing");
+        System.out.println("join Minchul....testing2");
+        JSONObject lastObj0 = null;
+        for(int i=0; i<jsonArr.size(); i++) {
+            lastObj0 = (JSONObject)jsonArr.get(i);
+            if(i == 0) {
+                System.out.println(lastObj0.get("OS"));
+            }else if(i == 1) {
+                System.out.println(lastObj0.get("Network"));
+            }else if(i == 2) {
+                System.out.println(lastObj0.get("DataBase"));
+            }else if(i == 3 ) {
+                System.out.println(lastObj0.get("AI"));
             }
         }
 
