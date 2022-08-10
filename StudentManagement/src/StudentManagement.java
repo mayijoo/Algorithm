@@ -110,8 +110,6 @@ public class StudentManagement {
         }
         
         System.out.println("join Minchul....testing");
-        System.out.println("join Minchul....testing2");
-        System.out.println("join Minchul....testing4");
         JSONObject lastObj0 = null;
         for(int i=0; i<jsonArr.size(); i++) {
             lastObj0 = (JSONObject)jsonArr.get(i);
