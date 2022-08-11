@@ -17,8 +17,15 @@ import org.json.simple.parser.ParseException;
  * 
  * 
  *  리팩토링 문제 확인
- *  1.    
- * 
+ *  1. 변수명
+ *  	- 데이터의 목적으로 사용되는지 알 수 없음
+ *  2. Magic Number
+ *  	- 제어문에 0 , 1, 2... 과 같은 Number가 쓰였는데, 왜 저 Number를 써야했는지 파악하기 어려움.
+ *  3. 주석의 부재
+ *  4. 중복 코드
+ *  5. 추상화가 되어 있지 않음.
+ *  5-1. 하나의 함수(main())안에 여러가지 기능이 포함되어 있음
+ *  	- main 함수에 절차지향으로 code가 작성되어 있음. code작성자 외에 개발자가 내용을 파악하려면 code를 읽고 데이터가 어떻게 변화하는지 파악해야함.
  */
 public class StudentManagement {
 
@@ -108,25 +115,5 @@ public class StudentManagement {
                 System.out.println(lastObj.get("AI"));
             }
         }
-        
-        System.out.println("join Minchul....testing");
-        System.out.println("join Minchul....testing10");
-        System.out.println("join Minchul....testing100");
-        System.out.println("join Minchul....testing1000");
-
-        JSONObject lastObj0 = null;
-        for(int i=0; i<jsonArr.size(); i++) {
-            lastObj0 = (JSONObject)jsonArr.get(i);
-            if(i == 0) {
-                System.out.println(lastObj0.get("OS"));
-            }else if(i == 1) {
-                System.out.println(lastObj0.get("Network"));
-            }else if(i == 2) {
-                System.out.println(lastObj0.get("DataBase"));
-            }else if(i == 3 ) {
-                System.out.println(lastObj0.get("AI"));
-            }
-        }
-
     }
 }
