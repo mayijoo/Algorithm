@@ -15,9 +15,9 @@ import org.json.simple.parser.ParseException;
  * @author mayijoo
  * @since 2022-07-15
  * 
- * �л����� ���α׷�
- * - ��� 
- *  1. ��� ���   
+ * 
+ *  리팩토링 문제 확인
+ *  1.    
  * 
  */
 public class StudentManagement {
