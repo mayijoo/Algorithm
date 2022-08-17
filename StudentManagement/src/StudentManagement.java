@@ -35,12 +35,12 @@ public class StudentManagement {
 		// 2. parse file to Object 
 		Object jsonObject = parseFiletoJsonObject(reader);
 
-		System.out.println("3. parse�� ���ÿ� JSONArray�� ��ȯ");
+		System.out.println("3. parse와 동시에 JSONArray로 변환");
 		JSONArray jsonArr2 = (JSONArray) jsonObject;
 
 		printRootElement(jsonArr2);
 
-		System.out.println("2. JSONObject�� ��ȯ");
+		System.out.println("2. JSONObject로 변환");
 		JSONObject jsonObj2 = null;
 		JSONArray jsonArr = null;
 
@@ -50,23 +50,22 @@ public class StudentManagement {
 
 			if (i == 0) {
 				System.out.println(jsonObj2.get("인적사항"));
-				System.out.println("1. �������� JSONArray�� ��ȯ");
+				System.out.println("1. 인적사항 JSONArray로 변환");
 
 				jsonArr = (JSONArray) jsonObj2.get("인적사항");
 
 				printArray(jsonArr);
 
 			} else if (i == 1) {
-				System.out.println(jsonObj2.get("인적사항"));
-				System.out.println("1. ������Ϻ� JSONArray�� ��ȯ");
+				System.out.println(jsonObj2.get("성적기록부"));
+				System.out.println("1. 성적기록부 JSONArray로 변환 ");
 
-				jsonArr = (JSONArray) jsonObj2.get("인적사항");
+				jsonArr = (JSONArray) jsonObj2.get("성적기록부");
 
 				printArray(jsonArr);
 			}
 		}
 
-		System.out.println("0. JSONObject�� ��ȯ");
 		printSubjects(jsonArr);
 	}
 	
@@ -84,7 +83,7 @@ public class StudentManagement {
 			System.out.println("ParseException");
 		} catch (Exception e) {
 			e.getMessage();
-			System.out.println("during parsing Exception");
+			System.out.println("parse 도중 Exception");
 		}
 
 		return jsonObject;
@@ -99,7 +98,7 @@ public class StudentManagement {
 			System.out.println("file not found : " + filePath);
 		} catch (Exception e) {
 			e.getMessage();
-			System.out.println("readJsonFile - Exception");
+			System.out.println("file read중 - Exception");
 		}
 
 		return reader;
