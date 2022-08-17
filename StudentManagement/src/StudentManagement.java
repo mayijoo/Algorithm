@@ -15,7 +15,6 @@ import org.json.simple.parser.ParseException;
  * @author mayijoo
  * @since 2022-07-15
  * 
- * 
  *  리팩토링 문제 확인
  *  1. 변수명
  *  	- 데이터의 목적으로 사용되는지 알 수 없음
@@ -28,9 +27,7 @@ import org.json.simple.parser.ParseException;
  *  	- main 함수에 절차지향으로 code가 작성되어 있음. code작성자 외에 개발자가 내용을 파악하려면 code를 읽고 데이터가 어떻게 변화하는지 파악해야함.
  */
 public class StudentManagement {
-
     public static void main(String[] args) {
-
         System.out.println("txt file read");
 
         Reader reader = null;
@@ -56,6 +53,7 @@ public class StudentManagement {
             jsonArr2 = (JSONArray) parser.parse(reader);
 
             for (int i = 0; i < jsonArr2.size(); i++) {
+            	
                 if (i == 0) {
                     System.out.println(jsonArr2.get(i));
                 } else if (i == 1) {
@@ -77,34 +75,37 @@ public class StudentManagement {
         System.out.println("2. JSONObject�� ��ȯ");
         JSONObject jsonObj2 = null;
         JSONArray jsonArr = null;
+        
         for (int i = 0; i < jsonArr2.size(); i++) {
+        	
             jsonObj2 = (JSONObject) jsonArr2.get(i);
+            
             if (i == 0) {
                 System.out.println(jsonObj2.get("��������"));
 
                 System.out.println("1. �������� JSONArray�� ��ȯ");
+                
                 jsonArr = (JSONArray) jsonObj2.get("��������");
-                for (int j = 0; j < jsonArr.size(); j++) {
-
-                    System.out.println(jsonArr.get(j));
-                }
+                
+                printArray(jsonArr);
 
             } else if (i == 1) {
                 System.out.println(jsonObj2.get("������Ϻ�"));
 
                 System.out.println("1. ������Ϻ� JSONArray�� ��ȯ");
+                
                 jsonArr = (JSONArray) jsonObj2.get("������Ϻ�");
-                for (int k = 0; k < jsonArr.size(); k++) {
-
-                    System.out.println(jsonArr.get(k));
-                }
+                
+                printArray(jsonArr);
             }
         }
        
         System.out.println("0. JSONObject�� ��ȯ");
         JSONObject lastObj = null;
+        
         for(int i=0; i<jsonArr.size(); i++) {
             lastObj = (JSONObject)jsonArr.get(i);
+            
             if(i == 0) {
                 System.out.println(lastObj.get("OS"));
             }else if(i == 1) {
@@ -114,6 +115,14 @@ public class StudentManagement {
             }else if(i == 3 ) {
                 System.out.println(lastObj.get("AI"));
             }
+        }
+    }
+    
+    private static void printArray(JSONArray jsonArr) {
+    	int arraySize = jsonArr.size();
+    	
+    	for (int k = 0; k < arraySize; k++) {
+            System.out.println(jsonArr.get(k));
         }
     }
 }
