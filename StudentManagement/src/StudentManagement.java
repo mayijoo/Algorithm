@@ -28,20 +28,9 @@ import org.json.simple.parser.ParseException;
  */
 public class StudentManagement {
     public static void main(String[] args) {
-        System.out.println("txt file read");
-
-        Reader reader = null;
-        try {
-            reader = new FileReader("C:/Work/StudentData.txt", StandardCharsets.UTF_8);
-        } catch (FileNotFoundException e) {
-            e.getMessage();
-            System.out.println("file reader ����");
-            return;
-        } catch (Exception e) {
-            e.getMessage();
-            System.out.println("�˼����� Exception ����");
-            return;
-        }
+        // 1. file read
+    	final String filePath = "C:/Work/StudentData.txt";
+        Reader reader = readJsonFile(filePath);
 
         System.out.println("Parse to JSON");
 
@@ -116,6 +105,21 @@ public class StudentManagement {
                 System.out.println(lastObj.get("AI"));
             }
         }
+    }
+    
+    private static Reader readJsonFile(final String filePath) {
+    	Reader reader = null;
+        try {
+            reader = new FileReader("C:/Work/StudentData.txt", StandardCharsets.UTF_8);
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+            System.out.println("file not found : " + filePath);
+        } catch (Exception e) {
+            e.getMessage();
+            System.out.println("readJsonFile - Exception");
+        }
+        
+        return reader;
     }
     
     private static void printArray(JSONArray jsonArr) {
